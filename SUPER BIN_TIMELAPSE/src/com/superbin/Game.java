@@ -100,16 +100,16 @@ public class Game extends Canvas implements Runnable
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
-		g.setColor(Color.BLUE);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		g.setColor(Color.BLUE); 
+		g.fillRect(0, 0, getWidth(), getHeight()); 
 		g.setColor(Color.RED);
 		g.fillRect(200, 200, getWidth()-400, getHeight()-400);
-		g.dispose();
+		g.dispose(); //must dispose before show
 		bs.show();
 	}
 	
-	
-	public void tick() //update
+	/* update */
+	public void tick() 
 	{
 		
 	}
