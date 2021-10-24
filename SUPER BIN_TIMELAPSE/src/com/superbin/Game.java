@@ -8,16 +8,26 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import com.superbin.entity.Player;
+import com.superbin.input.KeyInput;
+
 
 public class Game extends Canvas implements Runnable
 {
 	/* resolution */
 	public static final int WIDTH = 270;
-	public static final int HEIGHT = WIDTH/14*10;
-	public static final int SCALE = 3;
+	public static final int HEIGHT = WIDTH*10/14;
+	public static final int SCALE = 4;
 	
 	/* Window */
 	public static final String TITLE = "Super Bin";
+	
+	/* Thread --> Game Loops */
+	private Thread thread;
+	public boolean running = false; 
+	
+	/* handler object */
+	public static Handler handler;
 	
 	/* constructor */
 	public Game()
@@ -31,10 +41,17 @@ public class Game extends Canvas implements Runnable
 		setMinimumSize(size);
 	}	
 	
-	/* Thread --> Game Loops */
-	private Thread thread;
-	public boolean running = false; 
+	/* initializing object */
+	private void init()
+	{
+		handler = new Handler();
+		
+		addKeyListener(new KeyInput());
+		
+		handler.addEntity(new Player(300,512,64,64,true,Id.PLAYER,handler));
+	}
 	
+	/* Thread --> Game Loops */
 	private synchronized void start()
 	{
 		if(running) return;
@@ -61,6 +78,8 @@ public class Game extends Canvas implements Runnable
 	@Override
 	public void run() 
 	{
+		init();
+		requestFocus();
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
 		double delta = 0.0;
@@ -100,10 +119,11 @@ public class Game extends Canvas implements Runnable
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
-		g.setColor(Color.BLUE); 
+		g.setColor(Color.BLACK); 
 		g.fillRect(0, 0, getWidth(), getHeight()); 
-		g.setColor(Color.RED);
-		g.fillRect(200, 200, getWidth()-400, getHeight()-400);
+		handler.render(g);
+		//g.setColor(Color.RED);
+		//g.fillRect(200, 200, getWidth()-400, getHeight()-400);
 		g.dispose(); //must dispose before show
 		bs.show();
 	}
@@ -111,7 +131,7 @@ public class Game extends Canvas implements Runnable
 	/* update */
 	public void tick() 
 	{
-		
+		handler.tick();
 	}
 	
 	/* main */

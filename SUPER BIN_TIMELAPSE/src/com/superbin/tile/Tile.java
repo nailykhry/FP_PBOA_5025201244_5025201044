@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import com.superbin.Handler;
 import com.superbin.Id;
 
-public class Tile 
+public abstract class Tile 
 {
 	public int x; //position horizontal
 	public int y; //position vertical
@@ -33,17 +33,10 @@ public class Tile
 		this.handler = handler;
 	}
 	
-	public void render(Graphics g)
-	{
-		
-	}
+	public abstract void render(Graphics g);
 	
 	/* update */
-	public void tick() 
-	{
-		x += velX;
-		y += velY;
-	}
+	public abstract void tick();
 	
 	/**/
 	public void die()

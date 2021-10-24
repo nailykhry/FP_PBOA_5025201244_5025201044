@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import com.superbin.Handler;
 import com.superbin.Id;
 
-public class Entity 
+public abstract class Entity 
 {
 	public int x; //position horizontal
 	public int y; //position vertical
@@ -34,17 +34,10 @@ public class Entity
 	}
 	
 	
-	public void render(Graphics g)
-	{
-		
-	}
+	public abstract void render(Graphics g);
 	
 	/* update */
-	public void tick() 
-	{
-		x += velX;
-		y += velY;
-	}
+	public abstract void tick();
 	
 	/**/
 	public void die()
