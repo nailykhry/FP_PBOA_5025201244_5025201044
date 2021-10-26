@@ -1,6 +1,7 @@
 package com.superbin.entity;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import com.superbin.Handler;
 import com.superbin.Id;
@@ -15,8 +16,13 @@ public abstract class Entity
 	public int velY;
 	public boolean solid;
 	
+	public boolean jumping = false;
+	public boolean falling = true;
+	
 	/* import from Enum Id */
 	public Id id;
+	
+	public double gravity = 0.0;
 	
 	/* from Handler */
 	public Handler handler;
@@ -96,6 +102,23 @@ public abstract class Entity
 		this.velY = velY;
 	}
 	
+	public Rectangle getBounds() {
+		return new Rectangle(getX(), getY(), width, height);
+	}
 	
+	public Rectangle getBoundsTop() {
+		return new Rectangle(getX()+10, getY(), width-20, 5);
+	}
 	
+	public Rectangle getBoundsBottom() {
+		return new Rectangle(getX()+10, getY()+height-5, width-20, 5);
+	}
+	
+	public Rectangle getBoundsLeft() {
+		return new Rectangle(getX(), getY()+10, 5, height-20);
+	}
+	
+	public Rectangle getBoundsRight() {
+		return new Rectangle(getX()+width-5, getY()+10, 5, height-20);
+	}
 }
