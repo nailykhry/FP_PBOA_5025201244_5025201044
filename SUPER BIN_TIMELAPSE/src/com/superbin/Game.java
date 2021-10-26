@@ -9,10 +9,7 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import com.superbin.entity.Player;
-import com.superbin.gfx.Sprite;
-import com.superbin.gfx.SpriteSheet;
 import com.superbin.input.KeyInput;
-import com.superbin.tile.Wall;
 
 
 public class Game extends Canvas implements Runnable
@@ -32,12 +29,6 @@ public class Game extends Canvas implements Runnable
 	/* handler object */
 	public static Handler handler;
 	
-	public SpriteSheet sheet;
-	
-	public static Sprite grass;
-	public static Sprite player;
-	
-	
 	/* constructor */
 	public Game()
 	{
@@ -54,12 +45,8 @@ public class Game extends Canvas implements Runnable
 	private void init()
 	{
 		handler = new Handler();
-		sheet = new SpriteSheet("/SpriteCobaLagi.png");
 		
 		addKeyListener(new KeyInput());
-		
-		grass = new Sprite(sheet, 2, 1);
-		player = new Sprite(sheet, 1, 1);
 		
 		handler.addEntity(new Player(300,512,64,64,true,Id.PLAYER,handler));
 	}
