@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>SUPER BIN</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>res/SpriteSheet2.png</name>
+			<type>1</type>
+			<location>C:/Users/MSI USER/Documents/KULIAH/Semester 3/TIMELAPSE/FP_PBOA_5025201244_5025201044/SUPER BIN/res/SpriteSheet2.png</location>
+		</link>
+	</linkedResources>
+</projectDescription>
