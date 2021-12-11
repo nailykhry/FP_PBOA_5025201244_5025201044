@@ -64,6 +64,7 @@ public class Player extends Entity
 			{
 				if(t.getId()==Id.flag) 
 				{
+					Game.coins += 10;
 					Game.switchLevel();
 				}
 			}
@@ -140,6 +141,9 @@ public class Player extends Entity
 							setY(tpY-height);
 							if (state == PlayerState.SMALL) 
 								state = PlayerState.BIG;
+							
+							Game.coins += 5;
+							
 							e.die();
 						}
 						break;
@@ -147,6 +151,7 @@ public class Player extends Entity
 						if(getBounds().intersects(e.getBounds())) 
 						{
 							Game.lives++;
+							Game.coins += 5;
 							e.die();
 						}
 				}

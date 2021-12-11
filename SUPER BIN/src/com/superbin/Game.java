@@ -47,10 +47,13 @@ public class Game extends Canvas implements Runnable
 	public static int level = 0;
 	
 	public static int coins = 0;
-	public static int lives = 3;
+	public static int lives = 2;
 	public static int deathScreenTime = 0;
+	public static int winScreenTime = 0;
 	
 	public static boolean showDeathScreen = true;
+	public static boolean showWinScreen = false;
+	
 	public static boolean gameOver = false;
 	public static boolean playing = false;
 	
@@ -257,15 +260,26 @@ public class Game extends Canvas implements Runnable
 				g.drawString("Use 'A' and 'D' to move", 310, 500);
 			}
 			else {   
-				
-									
-					g.setColor(Color.WHITE);
-					g.setFont(new Font("Courier",Font.BOLD,50));
-					g.drawString("Game Over :(", 300, 400);
+					g.drawImage(player[3].getBufferedImage(), 500, 200, 100, 100,null);				
+					g.setColor(Color.RED);
+					g.setFont(new Font("Courier",Font.BOLD,60));
+					g.drawString("Game Over :(", 350, 400);
+					g.drawString("Your Coins : "+coins, 350, 500);
 					//Game.score();
 				}
 
 			}
+		
+		if(showWinScreen)
+		{
+			g.setColor(Color.BLACK);
+			g.fillRect(0, 0, getWidth(), getHeight());
+			g.drawImage(player[0].getBufferedImage(), 500, 200, 100, 100,null);
+			g.setColor(Color.YELLOW);
+			g.setFont(new Font("Courier",Font.BOLD,50));
+			g.drawString("You Win :D", 350, 400);
+			g.drawString("Your Coins : "+coins, 350, 500);
+		}
 		
 	
 		
@@ -316,6 +330,13 @@ public class Game extends Canvas implements Runnable
 			}
 			themesong.play();
 		}
+		
+		if(showWinScreen) winScreenTime++;
+		
+		if(winScreenTime >= 180)
+		{
+			System.exit(0);
+		}
 	}
 	
 	public static int getFrameWidth()
@@ -330,7 +351,16 @@ public class Game extends Canvas implements Runnable
 	
 	public static void switchLevel()
 	{
-		Game.level++;
+		
+		if(Game.level == 1)
+		{
+			Game.level = 0;
+			showWinScreen = true;
+			handler.clearLevel();
+			return;
+		}
+		else
+			Game.level++;
 		
 		handler.clearLevel();
 		try {
@@ -365,7 +395,7 @@ public class Game extends Canvas implements Runnable
 	
 	public static void main(String[] args)
 	{
-		Game game =new Game();
+		Game game = new Game();
 		JFrame frame =new JFrame (TITLE);
 	
 		frame.add(game);

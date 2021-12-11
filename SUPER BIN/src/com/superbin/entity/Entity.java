@@ -46,6 +46,8 @@ public abstract class Entity
 		handler.removeEntity(this);
 		if(getId()==Id.player) 
 		{
+			if(Game.coins>=10) Game.coins -= 10;
+				else Game.coins = 0;
 			Game.lives--;
 			Game.showDeathScreen=true;
 			if(Game.lives<=0) Game.gameOver=true;
