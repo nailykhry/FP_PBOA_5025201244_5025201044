@@ -108,6 +108,9 @@ public class Handler
 				if(red==0&&(green>123&&green<129)&&blue==0) addTile(new Pipe(x*32, y*32, 64, 64*5,true,Id.pipe,this,128-green, true));//ff7700,008000
 				if(red==255&&green==165&&blue==0) addEntity(new Coin(x*32, y*32, 64, 64,Id.coin, this));//FFA500
 				if(red==105&&green==105&&blue==105) addTile(new Flag(x*32, y*32, 64, 64*5, true, Id.flag, this));//696969
+				if(red==0&&green==128&&blue==128) addEntity(new Goomba(x*32, y*32, 64, 64, Id.goomba,this));//008080
+				if(red==169&&green==169&&blue==169) addEntity(new Plastic(x*32, y*32, 64, 64,Id.plastic,this,1));//A9A9A9 //powerup
+				
 			}
 		}
 	}

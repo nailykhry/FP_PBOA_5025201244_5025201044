@@ -41,7 +41,7 @@ public class Button
 	{	
 		if(getLabel().toLowerCase().contains("start")) 
 		{
-			Game.playing=true;
+			Game.playing = true;
 		}
 			
 		else 

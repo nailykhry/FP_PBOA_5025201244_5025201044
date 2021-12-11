@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/MSI USER/Documents/KULIAH/Semester 3/TIMELAPSE/LOCAL_FP_PBOA_5025201244_5025201044_BOLE OTAK ATIK/SUPER BIN/res"/>
+	<classpathentry kind="lib" path="C:/Users/MSI USER/Documents/KULIAH/Semester 3/TIMELAPSE/FP_PBOA_5025201244_5025201044/SUPER BIN/res"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

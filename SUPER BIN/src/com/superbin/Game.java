@@ -50,6 +50,7 @@ public class Game extends Canvas implements Runnable
 	public static int lives = 2;
 	public static int deathScreenTime = 0;
 	public static int winScreenTime = 0;
+	public static int gameOverScreenTime =0;
 	
 	public static boolean showDeathScreen = true;
 	public static boolean showWinScreen = false;
@@ -311,6 +312,25 @@ public class Game extends Canvas implements Runnable
 		if(showDeathScreen && !gameOver && playing) 
 			deathScreenTime++;
 		
+		if(showDeathScreen && gameOver && playing)
+			gameOverScreenTime++;
+		
+		if(gameOverScreenTime>=180)
+		{
+			level = 0;
+			coins = 0;
+			lives = 2;
+			deathScreenTime = 0;
+			winScreenTime = 0;
+			gameOverScreenTime = 0;
+			showDeathScreen = true;
+			showWinScreen = false;
+			gameOver = false;
+			playing = false;
+			render();
+		}
+		
+		
 		if(deathScreenTime>=180) 
 		{
 			if(!gameOver)
@@ -320,14 +340,7 @@ public class Game extends Canvas implements Runnable
 				handler.clearLevel();
 				handler.createLevel(levels[level]);
 			}
-			else
-			if(gameOver)
-			{
-				showDeathScreen = false;
-				deathScreenTime=0;
-				playing = false;
-				gameOver = false;
-			}
+
 			themesong.play();
 		}
 		
@@ -335,7 +348,17 @@ public class Game extends Canvas implements Runnable
 		
 		if(winScreenTime >= 180)
 		{
-			System.exit(0);
+			level = 0;
+			coins = 0;
+			lives = 2;
+			deathScreenTime = 0;
+			winScreenTime = 0;
+			gameOverScreenTime = 0;
+			showDeathScreen = true;
+			showWinScreen = false;
+			gameOver = false;
+			playing = false;
+			render();
 		}
 	}
 	

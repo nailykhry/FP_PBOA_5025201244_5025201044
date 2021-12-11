@@ -172,8 +172,8 @@ public class Player extends Entity
 					{
 						Game.damage.play();
 						state = PlayerState.SMALL;
-						width/=2;
-						height/=2;
+						width/=3;
+						height/=3;
 						x+=width;
 						y+=height;
 						e.die();
