@@ -172,10 +172,10 @@ public class Player extends Entity
 					{
 						Game.damage.play();
 						state = PlayerState.SMALL;
-						width/=3;
-						height/=3;
-						x+=width;
-						y+=height;
+						width-=(width/4);
+						height-=(height/4);
+						x+=width/4;
+						y+=height/4;
 						e.die();
 					}
 					else
