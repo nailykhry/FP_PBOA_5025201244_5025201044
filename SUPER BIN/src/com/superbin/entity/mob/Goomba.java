@@ -23,16 +23,17 @@ public class Goomba extends Entity
 		super(x, y, width, height, id, handler);
 		int dir = random.nextInt(2);
 		
-		switch(dir) {
-		case 0:
-			setVelX(-2);
-			facing = 0;
-			break;
-		case 1:
-			setVelX(2);
-			facing = 1;
-
-			break;
+		switch(dir) 
+		{
+			case 0:
+				setVelX(-2);
+				facing = 0;
+				break;
+			case 1:
+				setVelX(2);
+				facing = 1;
+	
+				break;
 		}
 		
 	}

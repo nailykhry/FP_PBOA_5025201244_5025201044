@@ -37,7 +37,7 @@ public class Launcher
 		
 		g.drawImage(background, 0, 0, Game.getFrameWidth(),Game.getFrameHeight(), null);
 		
-		g.setColor(new Color(102,41,0));
+		g.setColor(new Color(102,41,0)); //coklat
 		g.setFont(new Font("Century Gothic", Font.BOLD,20));
 		g.drawString("TIMELAPSE", 580, 600);
 		g.drawString("Naily Khairiya(5025201244) - Khariza Azmi(5025201044)", 400, 630);

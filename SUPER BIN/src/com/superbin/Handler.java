@@ -81,7 +81,7 @@ public class Handler
 		for(int i=0; i<Game.WIDTH*Game.SCALE/32+1;i++)
 		{
 			addTile(new Wall(i*32, Game.HEIGHT*Game.SCALE-32, 32, 32, true, Id.wall, this));
-			if(i!=0&&i!=1&&i!=32&&i!=17)addTile(new Wall(i*32, 300, 32,32, true, Id.wall,this));
+			if(i!=0&&i!=1&&i!=32&&i!=17) addTile(new Wall(i*32, 300, 32,32, true, Id.wall,this));
 		}
 	}
 */
