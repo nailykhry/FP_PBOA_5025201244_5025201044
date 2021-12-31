@@ -50,7 +50,11 @@ public abstract class Entity
 				else Game.coins = 0;
 			Game.lives--;
 			Game.showDeathScreen=true;
-			if(Game.lives<=0) Game.gameOver=true;
+			if(Game.lives<=0)
+			{
+				Game.gameOver=true;
+				Game.themesong.stop();
+			}
 			Game.losealife.play();
 		}
 	}

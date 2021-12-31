@@ -150,7 +150,7 @@ public class Player extends Entity
 					case 1 :
 						if(getBounds().intersects(e.getBounds())) 
 						{
-							//Max nyawa 4
+							//Max nyawa 3
 							if(Game.lives < 3) Game.lives++;
 							Game.coins += 5;
 							e.die();

@@ -36,6 +36,7 @@ public class Sound
 		clip.setFramePosition(0);
 		clip.start();
 	}
+
 	
 	public void close()
 	{
